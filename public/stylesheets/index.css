@@ -1,0 +1,124 @@
+@import 'common.css';
+
+@keyframes backgroundMove {
+  0% {
+    left: -400%;
+  }
+
+  10%, 50% {
+    left: -100%;
+  }
+
+  60%, 100% {
+    left: 200%;
+  }
+}
+
+.page-index {
+  min-width: 860px;
+  position: relative;
+  background: #ea394a;
+  color: #fff;
+}
+
+.page-index .background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.page-index .background {
+  position: absolute;
+  top: 0;
+  left: -400%;
+  display: block;
+  width: 300%;
+  height: 100%;
+  z-index: 1;
+  background-color: #1744ca;
+  animation: backgroundMove 10s linear infinite 5s;
+  transform: skewX(-45deg) translate3d(0, 0, 0);
+  perspective: 1000px;
+  backface-visibility: hidden;
+}
+
+.page-index .page-content {
+  position: relative;
+  z-index: 5;
+}
+
+.page-index .header,
+.page-index .footer {
+  width: 1080px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+.page-index .header {
+  padding: 37px 0;
+}
+
+.page-index .footer {
+  padding: 39px 0;
+}
+
+.page-index .footer .bottom-description {
+  float: left;
+}
+
+.page-index .footer .mail-and-donate {
+  float: right;
+}
+
+.page-index .rect {
+  position: relative;
+  display: block;
+  width: 840px;
+  height: 548px;
+  margin: 0 auto;
+  border: 10px solid #fff;
+}
+
+.page-index .logo {
+  position: absolute;
+  top: 106px;
+  left: 99px;
+  display: block;
+  width: 337px;
+  height: 244px;
+  background: url('../images/logo.png') 0 0 no-repeat;
+}
+
+.page-index .text-info {
+  position: absolute;
+  top: 408px;
+  left: 98px;
+  line-height: 1.1em;
+}
+
+.page-index .app {
+  position: absolute;
+  top: 90px;
+  right: 98px;
+  display: block;
+  width: 54px;
+  height: 375px;
+  background: url('../images/main-app.png') 0 0 no-repeat;
+}
+
+@media (max-width: 1150px) {
+  .page-index .header,
+  .page-index .footer {
+    width: 860px;
+  }
+}
+
+@media (max-width: 900px) {
+  .page-index .header,
+  .page-index .footer {
+    width: 800px;
+  }
+}
