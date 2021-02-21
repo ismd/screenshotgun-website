@@ -1,0 +1,55 @@
+@import 'common.css';
+
+.page-show .header {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px 20px;
+}
+
+.page-show .image {
+  width: 100%;
+  padding: 20px 20px 45px 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.page-show .image .toggle-popup {
+  cursor: zoom-in;
+}
+
+.page-show .image img {
+  max-width: 100%;
+  box-shadow: 0 0 20px #333;
+}
+
+.page-show .popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 10px 10px 6px;
+  background: #999;
+  text-align: center;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.page-show .popup .helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.page-show .popup .toggle-popup {
+  cursor: zoom-out;
+}
+
+.page-show .popup img {
+  vertical-align: middle;
+  box-shadow: 0 0 20px #333;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,22 +1,15 @@
-doctype html
-html(lang="ru")
-  head
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=900")
-    title Screenshotgun
-
-    link(href="http://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,cyrillic" rel="stylesheet")
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body.page.page-index
-    .background-wrapper
-      .background
-    .page-content
-      .header Download the Alpha Version for <a href="/dist/ScreenshotgunInstaller.exe">Windows</a>/<a href="https://github.com/ismd/screenshotgun#install" target="_blank">Linux</a>/<a href="/dist/Screenshotgun.dmg" target="_blank">macOS</a>
-      .rect
-        .logo
-        .text-info Coming soon!<br />Open screenshoter with cloud support and server part.
-        .app
-      .footer
-        .bottom-description Just for shooting screenshots and nothing more
-        .mail-and-donate &copy;Screenshotgun #{year}.&nbsp;
-          a(href="mailto:ismd@screenshotgun.com") Mail us
+extends layout
+block head
+  link(rel="stylesheet", href="/stylesheets/show.css")
+  script(src="/javascripts/show.js")
+block body
+  body.page.page-show
+    .js-main-content
+      .header Скриншот загружен #{date}
+      .image
+        a(href="javascript:void(0);").js-toggle-popup.toggle-popup(title="Открыть в полном размере")
+          img(src=`${src}`)
+    .js-popup.popup.hidden
+      span.helper
+      a(href="javascript:void(0);").js-toggle-popup.toggle-popup
+        img(src=`${src}`)
