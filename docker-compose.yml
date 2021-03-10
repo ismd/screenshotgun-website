@@ -1,0 +1,13 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  screenshotgun:
+    hostname: screenshotgun
+    build: .
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - ./config/nginx/private:/etc/ssl/private
