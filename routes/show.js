@@ -7,7 +7,7 @@ router.get('/:year-:month-:day/:hash', function(req, res, next) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
     res.render('show', {
-        date: new Date(req.params.year, req.params.month, req.params.day).toLocaleDateString('ru-RU', options),
+        date: new Date(req.params.year, req.params.month - 1, req.params.day).toLocaleDateString('ru-RU', options),
         src: `https://storage.yandexcloud.net/screenshots/${date}/${req.params.hash}.png`,
     });
 });
