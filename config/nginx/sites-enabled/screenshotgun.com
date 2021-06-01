@@ -3,11 +3,13 @@ upstream screenshotgun {
 }
 
 server {
-    listen 443 ssl default_server;
-    listen [::]:443 ssl default_server;
+    listen 80;
+    listen [::]:80;
+    return 301 https://$host$request_uri;
+}
 
-    ssl_certificate        /etc/ssl/private/certificate.pem;
-    ssl_certificate_key    /etc/ssl/private/private.key;
+server {
+    server_name screenshotgun.com;
 
     add_header Strict-Transport-Security    "max-age=31536000; includeSubDomains" always;
     add_header X-Frame-Options              SAMEORIGIN;
@@ -23,10 +25,4 @@ server {
         proxy_set_header    X-Forwarded-Host    $host;
         proxy_set_header    X-Forwarded-Port    $server_port;
     }
-}
-
-server {
-    listen 80;
-    listen [::]:80;
-    return 301 https://$host$request_uri;
 }

@@ -1,0 +1,14 @@
+FROM nginx
+
+EXPOSE 80
+EXPOSE 443
+
+COPY config/nginx/nginx.conf /etc/nginx/
+COPY config/nginx/sites-enabled/ /etc/nginx/sites-enabled/
+
+RUN apt-get clean
+RUN apt-get update
+RUN apt-get -qq install certbot python3-certbot-nginx cron
+RUN echo "0 12 * * * /usr/bin/certbot renew --quiet" > /var/spool/cron/crontabs/root
+
+# CMD ["/usr/bin/certbot", "--nginx", "-d", "screenshotgun.com", "-m", "zzismd@gmail.com", "--agree-tos", "-n"]

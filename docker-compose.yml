@@ -4,10 +4,7 @@ services:
     hostname: screenshotgun
     image: ismd/screenshotgun-website
   nginx:
-    image: nginx
+    image: ismd/screenshotgun-nginx
     ports:
       - 80:80
       - 443:443
-    volumes:
-      - ./config/nginx/conf.d:/etc/nginx/conf.d
-      - ./config/nginx/private:/etc/ssl/private
