@@ -10,11 +10,17 @@ server {
 
 server {
     server_name screenshotgun.com;
+    listen 443 ssl;
 
     add_header Strict-Transport-Security    "max-age=31536000; includeSubDomains" always;
     add_header X-Frame-Options              SAMEORIGIN;
     add_header X-Content-Type-Options       nosniff;
     add_header X-XSS-Protection             "1; mode=block";
+
+    ssl_certificate /etc/letsencrypt/live/screenshotgun.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/screenshotgun.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     location / {
         proxy_pass http://screenshotgun;
